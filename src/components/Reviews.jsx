@@ -1,17 +1,21 @@
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { fetchReviews } from '../api';
+import Loading from './Loading';
 
 const Reviews = () => {
     const [reviewData, setReviewData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         fetchReviews()
         .then((data) => {
-            console.log(data)
             setReviewData(data)
-        })
-    })
+            setIsLoading(false);
+        }) 
+    }, []);
+
+    if(isLoading){return <Loading/>}
 
     return <section>
         <ul className='review-grid'>
