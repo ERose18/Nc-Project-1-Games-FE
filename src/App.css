@@ -1,4 +1,69 @@
-.App {
+html{
+  color:aliceblue;
+  background-color: rgb(90, 92, 95);
+}
+
+.nav-line{
+  list-style-type: none;
   display: flex;
+  margin: 0px;
+  padding: 5px;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  background-color: rgb(70, 73, 77);
+}
+
+.nav-list-left{
+  margin: 5px;
+  padding: 5px; 
+  font-size: large;
+}
+
+.nav-list-center{
+  justify-content: center;
+  display: flex;
+  width:100%;
+}
+
+.nav-list-right{
+  margin-left: 10px;
+  margin-right: 20px;
+  font-size: large;
+  align-items:center;
+}
+
+a{
+  font-size: large;
+  color: aliceblue;
+  text-decoration: none;
+}
+a:hover{
+  color:rgb(107, 164, 238)
+}
+
+.game-review {
+  background: rgb(70, 73, 77);
+  padding: 2rem;
+  margin: 1rem;
+  filter: drop-shadow(0 0 0.75rem rgb(51, 53, 56));
+}
+
+.review-grid{
+  flex-direction:row;
+  display:flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
   text-align: center;
+}
+
+.images{
+  width: 400px;
+  border: 5px solid rgb(156, 72, 252);
+}
+
+.title{
+  font-weight: bold;
 }
