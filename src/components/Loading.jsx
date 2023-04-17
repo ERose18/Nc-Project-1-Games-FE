@@ -1,7 +1,7 @@
 
 const Loading = () => {
-    return <section>
-        <p>Reviews being loaded...</p>
+    return <section className="loading">
+        <p>Reviews Loading..</p>
     </section>
 }
 

@@ -67,3 +67,10 @@ a:hover{
 .title{
   font-weight: bold;
 }
+
+.loading{
+  justify-content: center;
+  font-size: x-large;
+  text-align: center;
+  display: flex;
+}
