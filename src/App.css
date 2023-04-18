@@ -127,3 +127,10 @@ a:hover{
     align-content: center;
     text-align: center;
 }
+
+.no-comments{
+  justify-content: center;
+  font-size: x-large;
+  text-align: center;
+  display: flex;
+}
