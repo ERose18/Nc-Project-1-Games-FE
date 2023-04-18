@@ -17,3 +17,10 @@ const ncGamesAPI = axios.create({
         return response.data.review;
       })
   }
+
+  export const fetchComments = (id) => { console.log(id)
+      return ncGamesAPI.get(`/reviews/${id}/comments`)
+      .then((response) => {
+        return response.data.comments;
+      })
+  }

@@ -91,3 +91,39 @@ a:hover{
   align-content: center;
   text-align: center;
 }
+
+.comments{
+  list-style-type: none;
+   background: rgb(70, 73, 77);
+   padding: 2rem;
+   margin: 3rem;
+   margin-left:0.5rem;
+   filter: drop-shadow(0 0 0.75rem rgb(51, 53, 56));
+  }
+  
+  .comment-author{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-weight: bold;
+}
+  .comment-comment{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.votes{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}

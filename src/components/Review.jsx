@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchReviewByID } from "../api";
 import Loading2 from "./Loading2";
+import Comments from "./Comments";
 
 const Review = () => {
     const {review_id} = useParams();
@@ -22,7 +23,7 @@ const Review = () => {
          <ul className='review-single-grid'>   
             <li className='single-game-review' key={review.review_id}>
                 <img className="images" alt={review.title} src={review.review_img_url}></img>
-                <p>
+                <section>
                 <h3>{review.title}</h3> 
                 Designer: {review.designer}
                 <br/>
@@ -33,9 +34,10 @@ const Review = () => {
                 <h4>
                 Votes: {review.votes}
                 </h4>
-                </p>
+                </section>
                 </li>
         </ul>
+        <Comments reviewID={review_id}/>
     </section>
 }
 

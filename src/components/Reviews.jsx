@@ -22,7 +22,7 @@ const Reviews = () => {
            {reviewData.map((review) => {
             return <li className='game-review' key={review.review_id}>
                 <img className="images" alt={review.title} src={review.review_img_url}></img>
-                <p >
+                <section >
                 <Link className="title" to={`/reviews/${review.review_id}`}> {review.title} </Link>
                 <br/>
                 Designer: {review.designer}
@@ -31,7 +31,7 @@ const Reviews = () => {
                 <h4>
                 Votes: {review.votes}
                 </h4>
-                </p>
+                </section>
                 </li>
            })}
         </ul>
