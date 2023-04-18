@@ -23,13 +23,14 @@ const Reviews = () => {
             return <li className='game-review' key={review.review_id}>
                 <img className="images" alt={review.title} src={review.review_img_url}></img>
                 <p >
-                <Link className="title" to={`/review/${review.review_id}`}> {review.title} </Link>
+                <Link className="title" to={`/reviews/${review.review_id}`}> {review.title} </Link>
                 <br/>
                 Designer: {review.designer}
                 <br/>
                 Owner: {review.owner}
-                <br/>
+                <h4>
                 Votes: {review.votes}
+                </h4>
                 </p>
                 </li>
            })}
