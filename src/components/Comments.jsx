@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { fetchComments } from "../api";
 import LoadingComments from "./LoadingComments";
+import NoComments from "./NoComments";
 
 const Comments = () => {
     const {review_id} = useParams();
@@ -9,15 +10,15 @@ const Comments = () => {
     const [loadingComments, setLoadingComments] = useState(true);
 
     useEffect(() => {
-        console.log(review_id)
         fetchComments(review_id)
         .then((comment) => {
             setComments(comment)
             setLoadingComments(false);
         })
-    }, [review_id])
+    }, [review_id, comments])
     
-    if(loadingComments){return <LoadingComments/>};
+    if(loadingComments){return <LoadingComments/>}
+    if (comments.length === 0){return <NoComments/>}
 
     return <section>
         <ul className='comment-grid'>
