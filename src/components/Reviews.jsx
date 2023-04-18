@@ -35,6 +35,7 @@ const Reviews = () => {
            })}
         </ul>
     </section>
+
 }
 
 export default Reviews;
