@@ -28,8 +28,9 @@ const Reviews = () => {
                 Designer: {review.designer}
                 <br/>
                 Owner: {review.owner}
-                <br/>
+                <h4>
                 Votes: {review.votes}
+                </h4>
                 </p>
                 </li>
            })}
