@@ -74,3 +74,20 @@ a:hover{
   text-align: center;
   display: flex;
 }
+
+.review-single-grid{
+  background: rgb(70, 73, 77);
+  padding: 2rem;
+  margin: 1rem;
+  filter: drop-shadow(0 0 0.75rem rgb(51, 53, 56));
+}
+
+.single-game-review{
+  flex-direction:row;
+  display:flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
