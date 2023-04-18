@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { fetchReviews } from '../api';
-import Loading from './Loading';
+import LoadingReviews from './LoadingReviews';
 
 const Reviews = () => {
     const [reviewData, setReviewData] = useState([]);
@@ -15,7 +15,7 @@ const Reviews = () => {
         }) 
     }, []);
 
-    if(isLoading){return <Loading/>}
+    if(isLoading){return <LoadingReviews/>}
 
     return <section>
         <ul className='review-grid'>

@@ -1,8 +1,8 @@
 
-const Loading2 = () => {
+const SingleLoading = () => {
     return <section className="loading">
         <p>Review is Loading...</p>
     </section>
 }
 
-export default Loading2;
+export default SingleLoading;

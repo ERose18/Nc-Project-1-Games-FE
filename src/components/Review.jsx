@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchReviewByID } from "../api";
-import Loading2 from "./Loading2";
+import SingleLoading from "./SingleLoading";
 import Comments from "./Comments";
 
 const Review = () => {
@@ -17,7 +17,7 @@ const Review = () => {
         })
     }, [review_id]); 
 
-    if(isLoadingSingleRev){return <Loading2/>}
+    if(isLoadingSingleRev){return <SingleLoading/>}
 
     return <section>    
          <ul className='review-single-grid'>   
