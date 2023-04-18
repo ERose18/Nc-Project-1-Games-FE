@@ -12,8 +12,8 @@ const ncGamesAPI = axios.create({
   }
 
   export const fetchReviewByID = (id) => {
-    return ncGamesAPI.get(`/reviews/${id}`)
-    .then((response) => {
-      return response.data.review;
-    })
+      return ncGamesAPI.get(`/reviews/${id}`)
+      .then((response) => {
+        return response.data.review;
+      })
   }

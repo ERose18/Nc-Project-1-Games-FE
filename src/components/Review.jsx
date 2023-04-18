@@ -1,17 +1,23 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchReviewByID } from "../api";
+import Loading2 from "./Loading2";
 
 const Review = () => {
     const {review_id} = useParams();
     const [review, setReview] = useState({});
+    const [isLoadingSingleRev, setIsLoadingSingleRev] = useState(true);
 
     useEffect(() => {
         fetchReviewByID(review_id)
         .then((data) => {
             setReview(data);
+            setIsLoadingSingleRev(false);
         })
-    })
+    }, [review_id]); 
+
+    if(isLoadingSingleRev){return <Loading2/>}
+
     return <section>    
          <ul className='review-single-grid'>   
             <li className='single-game-review' key={review.review_id}>

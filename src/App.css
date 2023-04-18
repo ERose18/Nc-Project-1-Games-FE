@@ -78,7 +78,7 @@ a:hover{
 .review-single-grid{
   background: rgb(70, 73, 77);
   padding: 2rem;
-  margin: 1rem;
+  margin: 3rem;
   filter: drop-shadow(0 0 0.75rem rgb(51, 53, 56));
 }
 
