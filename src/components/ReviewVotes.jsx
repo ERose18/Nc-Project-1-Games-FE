@@ -33,22 +33,13 @@ const ReviewVotes = ({review_id, setVotes}) => {
     };
 
     const resetHandler = () => {
-        setVotes((votes) => {
-            return votes - 1
-        });
+    
         setHasVoted(false);
-        patchVotes(review_id, -1)
-        .catch((err) => {
-            if(err){throw err};
-            setVotes((votes) => {
-                return votes + 1
-            });
-        })
     };
  
     return <section>
         <div>
-            {hasVoted ? <button onClick={resetHandler}>Reset Your Vote</button> : null}
+            {hasVoted ? <button onClick={resetHandler}>Vote Again</button> : null}
         </div>
             <button onClick={plusVoteHandler} disabled={hasVoted}><i className="arrow up"></i></button> &nbsp;
             <button onClick={minusVoteHandler} disabled={hasVoted}><i className="arrow down"></i></button>
