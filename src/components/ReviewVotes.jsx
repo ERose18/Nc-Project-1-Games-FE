@@ -33,7 +33,17 @@ const ReviewVotes = ({review_id, setVotes}) => {
     };
 
     const resetHandler = () => {
+        setVotes((votes) => {
+            return votes - 1
+        });
         setHasVoted(false);
+        patchVotes(review_id, -1)
+        .catch((err) => {
+            if(err){throw err};
+            setVotes((votes) => {
+                return votes + 1
+            });
+        })
     };
  
     return <section>
