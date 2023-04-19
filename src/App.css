@@ -135,6 +135,15 @@ a:hover{
   display: flex;
 }
 
+.review-vote-box{
+  flex-direction:row;
+  display:flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
 
 .arrow {
   border: solid rgb(156, 72, 252);
