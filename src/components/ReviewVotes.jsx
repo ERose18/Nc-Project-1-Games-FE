@@ -1,36 +1,31 @@
+import { useState } from "react";
 import { patchVotes } from "../api"
 
 const ReviewVotes = ({review_id, setVotes}) => {
+    const [hasVoted, setHasVoted] = useState(false);
 
-    const plusVoteHandler = () => {
+    const voteHandler = (vote) => {
         setVotes((votes) => {
-            return votes + 1
+            return votes + vote
         });
-        patchVotes(review_id, 1)
+        setHasVoted(true);
+        patchVotes(review_id, hasVoted)
         .catch((err) => {
-            if(err){throw err};
-            setVotes((votes) => {
-                return votes - 1
-            });
-        });
+            console.log(err)
+            throw err;
+        })
     };
 
-    const minusVoteHandler = () => {
-        setVotes((votes) => {
-            return votes - 1
-        });
-        patchVotes(review_id, -1)
-        .catch((err) => {
-            if(err){throw err};
-            setVotes((votes) => {
-                return votes + 1
-            });
-        });
+    const resetHandler = () => {
+        setHasVoted(false);
     };
-
+ 
     return <section>
-            <button onClick={plusVoteHandler}><i class="arrow up"></i></button>
-            <button onClick={minusVoteHandler}><i class="arrow down"></i></button>
+        <div>
+            {hasVoted ? <button onClick={resetHandler}>Reset Your Vote</button> : null}
+        </div>
+            <button onClick={() => voteHandler(1)} disabled={hasVoted}><i className="arrow up"></i></button>
+            <button onClick={() => voteHandler(-1)} disabled={hasVoted}><i className="arrow down"></i></button>
      </section>
 }
 
