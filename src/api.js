@@ -24,3 +24,10 @@ const ncGamesAPI = axios.create({
         return response.data.comments;
       })
   }
+
+  export const patchVotes = (id, newVotes) => {
+    return ncGamesAPI.patch(`/reviews/${id}`, {new_votes: newVotes})
+    .then((response) => {
+      return response.data.review.votes;
+    })
+  }

@@ -3,16 +3,20 @@ import { useState, useEffect } from "react";
 import { fetchReviewByID } from "../api";
 import SingleLoading from "./SingleLoading";
 import Comments from "./Comments";
+import ReviewCard from "./ReviewCard";
+
 
 const Review = () => {
     const {review_id} = useParams();
     const [review, setReview] = useState({});
     const [isLoadingSingleRev, setIsLoadingSingleRev] = useState(true);
+    const [votes, setVotes] = useState(0);
 
     useEffect(() => {
         fetchReviewByID(review_id)
         .then((data) => {
             setReview(data);
+            setVotes(data.votes);
             setIsLoadingSingleRev(false);
         })
     }, [review_id]); 
@@ -20,24 +24,8 @@ const Review = () => {
     if(isLoadingSingleRev){return <SingleLoading/>}
 
     return <section>    
-         <ul className='review-single-grid'>   
-            <li className='single-game-review' key={review.review_id}>
-                <img className="images" alt={review.title} src={review.review_img_url}></img>
-                <section>
-                <h3>{review.title}</h3> 
-                Designer: {review.designer}
-                <br/>
-                Owner: {review.owner}
-                <br/>
-                Review: {review.review_body}
-                <br/>
-                <h4>
-                Votes: {review.votes}
-                </h4>
-                </section>
-                </li>
-        </ul>
-        <Comments reviewID={review_id}/>
+         <ReviewCard review={review} review_id={review_id} setVotes={setVotes} votes={votes}/>
+         <Comments review_id={review_id}/>
     </section>
 }
 

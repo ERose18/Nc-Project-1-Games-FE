@@ -1,6 +1,5 @@
 
 const CommentCard = ({comment}) => {
-    console.log(comment.author)
     return <li className='comments' key={comment.comment_id}>
                 <section className="comment-author">
                 Author: {comment.author}

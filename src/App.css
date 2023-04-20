@@ -134,3 +134,28 @@ a:hover{
   text-align: center;
   display: flex;
 }
+
+.review-vote-box{
+  flex-direction:row;
+  display:flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.arrow {
+  border: solid rgb(156, 72, 252);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3.5px;
+}
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}

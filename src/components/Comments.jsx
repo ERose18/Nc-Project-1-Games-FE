@@ -13,7 +13,7 @@ const Comments = () => {
     useEffect(() => {
         fetchComments(review_id)
         .then((comment) => {
-            setComments(comment)
+            setComments(comment);
             setLoadingComments(false);
         })
     }, [review_id])
@@ -24,7 +24,7 @@ const Comments = () => {
     return <section>
         <ul className='comment-grid'>
         {comments.map((comment) => {
-           return <CommentCard comment={comment}/>
+           return <CommentCard comment={comment} />
           })}
         </ul>
     </section>
