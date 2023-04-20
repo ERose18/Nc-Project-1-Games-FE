@@ -32,7 +32,7 @@ const ncGamesAPI = axios.create({
     })
   }
 
-  export const fetchUsername = () => {
+  export const fetchUsers = () => {
     return ncGamesAPI.get(`/users`)
     .then((response) => {
       return response.data.users

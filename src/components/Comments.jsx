@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { UserContext } from "../utils/context";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
 import { fetchComments } from "../api";
 import LoadingComments from "./LoadingComments";
@@ -11,6 +12,7 @@ const Comments = () => {
     const [comments, setComments] = useState([]);
     const [loadingComments, setLoadingComments] = useState(true);
     const [addComment, setAddComment] = useState(true);
+    const {user, setUser} = useContext(UserContext);
 
     useEffect(() => {
         fetchComments(review_id)
@@ -21,14 +23,14 @@ const Comments = () => {
     }, [review_id])
     
     if(loadingComments){return <LoadingComments/>}
-    if (comments.length === 0){return <NoComments/>}
+    if (comments.length === 0){return <NoComments addComment={addComment} setAddComment={setAddComment} setComments={ setComments} review_id={review_id}/>}
 
     return <section>
             <button className="add-comment-button" onClick={() => setAddComment((currVal) => !currVal)}>Click Here To Add Comment!</button>
-            {addComment ? null : <AddComment comments={comments} review_id={review_id}/>}
+            {addComment ? null : <AddComment  setComments={ setComments} review_id={review_id}/>}
          <ul className='comment-grid'>
             {comments.map((comment) => {
-            return <CommentCard comment={comment} />
+            return <CommentCard key={comment.comment_id }comment={comment} />
             })}
         </ul>
     </section>

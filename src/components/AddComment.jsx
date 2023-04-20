@@ -1,46 +1,52 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { postComment } from "../api";
+import { UserContext } from "../utils/context";
 
-const AddComment = ({comments, review_id}) => {
-    const [commentAuthor, setCommentAuthor] = useState('');
+const AddComment = ({ setComments, review_id}) => {
     const [commentBody, setCommentBody] = useState('');
     const [commentVotes, setCommentVotes] = useState(0);
-    const [commentPosted, setCommentPosted] = useState(false)
+    const [commentPosted, setCommentPosted] = useState(false);
+    const [error, setError] = useState(false);
+    const {user, setUser} = useContext(UserContext);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     return <section>
         <form className="add-comment-form" onSubmit={(event) => {
             event.preventDefault()
 
             const commentToAdd = {
-                "author": commentAuthor,
+                "author": user,
                 "body": commentBody,
                 "votes": commentVotes
             };
-            setCommentPosted(true)
+            setIsSubmitting(true);
             postComment(review_id, commentToAdd)
             .then((newComment) => {
-                comments((currentComments) => {
+                setComments((currentComments) => {
                     return [newComment, ...currentComments];
                 })
             })
             .then(() => {
-                setCommentAuthor('');
                 setCommentBody('');
                 setCommentVotes(0);
+                setCommentPosted(true);
+                setError(false);
+                setIsSubmitting(false);
+            })
+            .catch((err) => {
+               setError(true);
+               setIsSubmitting(false);
             })
         }}>
 
-        <label htmlFor="comment-author">Comment Author</label>
-        <input name="comment-author" value={commentAuthor} required onChange={(event) =>{
-            setCommentAuthor(event.target.value)
-        }}></input>
         <label htmlFor="comment-body">Comment</label>
-        <input name="comment-body" value={commentBody} required onChange={(event) =>{
+        <textarea name="comment-body" value={commentBody} required onChange={(event) =>{
             setCommentBody(event.target.value)
-        }}></input>
-        <button className="submit-button" >Submit</button>
+        }}></textarea>
+        <button className="submit-button" disabled={isSubmitting} >Submit</button>
         </form>
         {commentPosted ? <h2 className="posted-comment">Your Comment Has Been Posted!</h2> : null}
+        {error ? <h2 className="posted-comment">Something Went Wrong... Please Try Again!</h2> : null}
     </section>
 }
 
