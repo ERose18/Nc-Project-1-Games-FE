@@ -45,6 +45,8 @@ const Reviews = () => {
                 Designer: {review.designer}
                 <br/>
                 Owner: {review.owner}
+                <br/>
+                Date: {new Date(review.created_at).toLocaleDateString()}
                 <h4>
                 Votes: {review.votes}
                 </h4>
