@@ -18,7 +18,7 @@ const ncGamesAPI = axios.create({
       })
   }
 
-  export const fetchComments = (id) => { console.log(id)
+  export const fetchComments = (id) => {
       return ncGamesAPI.get(`/reviews/${id}/comments`)
       .then((response) => {
         return response.data.comments;
@@ -29,5 +29,19 @@ const ncGamesAPI = axios.create({
     return ncGamesAPI.patch(`/reviews/${id}`, {new_votes: newVotes})
     .then((response) => {
       return response.data.review.votes;
+    })
+  }
+
+  export const fetchUsers = () => {
+    return ncGamesAPI.get(`/users`)
+    .then((response) => {
+      return response.data.users
+    });
+  }
+
+  export const postComment = (id, comment) => {
+    return ncGamesAPI.post(`/reviews/${id}/comments`, comment)
+    .then((response) => {
+      return response.data.comments;
     })
   }

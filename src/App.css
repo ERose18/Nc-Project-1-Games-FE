@@ -97,6 +97,7 @@ a:hover{
    background: rgb(70, 73, 77);
    padding: 2rem;
    margin: 3rem;
+   margin-top:1em;
    margin-left:0.5rem;
    filter: drop-shadow(0 0 0.75rem rgb(51, 53, 56));
   }
@@ -158,4 +159,34 @@ a:hover{
 .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+.login-section{
+   background: rgb(70, 73, 77);
+   padding: 2rem;
+   margin: 3rem;
+   filter: drop-shadow(0 0 0.75rem rgb(156, 72, 252));
+   justify-content: center;
+    align-items: center;
+  text-align: center;
+}
+
+
+.add-comment-form{
+    display: grid;
+    justify-content: center;
+}
+
+.posted-comment{
+  text-align: center;
+  color:rgb(156, 72, 252);
+}
+
+.comment-grid{
+  margin-top:0.2em;
+}
+
+.add-comment-button{
+  display: flex;
+  margin-left: 4em;
 }
