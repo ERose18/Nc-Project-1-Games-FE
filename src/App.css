@@ -193,8 +193,15 @@ a:hover{
 
 .category-section{
    display: flex;
-  margin-top: 15px;
+  margin-top: 5px;
   margin-right:5em;
-  justify-content: right;
+  justify-content:left;
 }
 
+.sort-header{
+  display: inline;
+  float:inline-start;
+  margin-top: 15px;
+  margin-right:5em;
+  margin-bottom: 0px;
+}
