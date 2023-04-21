@@ -205,3 +205,22 @@ a:hover{
   margin-right:5em;
   margin-bottom: 0px;
 }
+
+.comment-delete{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.deleted-messages{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top:1em;
+}
+
+.error-handler{
+  color: rgb(237, 61, 61);
+  display: inline;
+  text-align: center;
+}

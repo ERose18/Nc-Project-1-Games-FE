@@ -45,3 +45,7 @@ const ncGamesAPI = axios.create({
       return response.data.comments;
     })
   }
+
+  export const deleteComment = ({comment_id}) => {
+    return ncGamesAPI.delete(`/comments/${comment_id}`)
+  }

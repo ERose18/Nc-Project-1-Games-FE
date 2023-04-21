@@ -1,18 +1,25 @@
 import { useState, useContext, useEffect } from 'react';
 import { fetchUsers } from '../api';
 import { UserContext } from '../utils/context';
+import ErrorHandler from "./ErrorHandler";
 
 const Home = ({isLoggedIn, setIsLoggedIn}) => {
     const [username, setUsername] = useState('');
     const [currentUsers, setCurrentUsers] = useState([]);
     const {user, setUser} = useContext(UserContext);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         fetchUsers()
         .then((users) => {
             setCurrentUsers(users);
         })
+        .catch((err) => {
+            setError(true);
+        })
     }, [])
+
+    if(error){ return <ErrorHandler/>}
 
     const submitHandler = (event) => {
         event.preventDefault();
