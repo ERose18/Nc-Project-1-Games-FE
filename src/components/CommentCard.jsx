@@ -1,3 +1,4 @@
+import DeleteComment from "./DeleteComment";
 
 const CommentCard = ({comment}) => {
     return <li className='comments' key={comment.comment_id}>
@@ -11,6 +12,7 @@ const CommentCard = ({comment}) => {
                 <h4 className="votes">
                 Votes: {comment.votes}
                 </h4>
+                <DeleteComment comment={comment}/>
           </li>
 }
 

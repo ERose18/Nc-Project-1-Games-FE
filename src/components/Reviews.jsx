@@ -5,6 +5,7 @@ import LoadingReviews from './LoadingReviews';
 import Categories from './Categories';
 import SortBy from './SortBy';
 import { useSearchParams } from "react-router-dom";
+import ErrorHandler from './ErrorHandler';
 
 const Reviews = () => {
     const [reviewData, setReviewData] = useState([]);
@@ -13,19 +14,25 @@ const Reviews = () => {
     const [sortBy, setSortBy] = useState('created_at');
     const [order, setOrder] = useState('DESC');
     const [searchParams, setSearchParams] = useSearchParams();
+    const [error, setError] = useState(false);
     
     
     useEffect(() => {
         fetchReviews(category, sortBy, order)
         .then((data) => {
             setReviewData(data)
-            setIsLoading(false);
-        }) 
+        })
+        .catch((err) => {
+            setError(true);
+        })
+        .finally(() => {
+        setIsLoading(false);
+        })
     }, [category, sortBy, order]);
 
-    if(isLoading){return <LoadingReviews/>}
+    if(error){ return <ErrorHandler/>}
 
-    return <section>
+    return isLoading ? <LoadingReviews/> :  <section>
         <div className='selector-headers'>
         <h5 className='sort-header'>Sort By:</h5>
         <h5 className='sort-header'>Order By:</h5>
