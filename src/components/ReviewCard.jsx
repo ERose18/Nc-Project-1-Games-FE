@@ -12,6 +12,8 @@ const ReviewCard = ({review, review_id, setVotes, votes}) => {
                 <br/>
                 Review: {review.review_body}
                 <br/>
+                <br/>
+                Date: {new Date(review.created_at).toLocaleDateString()}
                 <h4>
                 Votes: {votes}
                 </h4>
