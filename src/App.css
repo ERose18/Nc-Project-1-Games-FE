@@ -27,7 +27,7 @@ html{
 }
 
 .nav-list-right{
-  margin-left: 10px;
+  margin-left: 20px;
   margin-right: 20px;
   font-size: large;
   align-items:center;
@@ -190,3 +190,11 @@ a:hover{
   display: flex;
   margin-left: 4em;
 }
+
+.category-section{
+   display: flex;
+  margin-top: 15px;
+  margin-right:5em;
+  justify-content: right;
+}
+

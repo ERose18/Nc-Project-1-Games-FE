@@ -8,8 +8,7 @@ const Reviews = () => {
     const [reviewData, setReviewData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [category, setCategory] = useState('');
-
-
+    
     useEffect(() => {
         fetchReviews(category)
         .then((data) => {
@@ -21,7 +20,7 @@ const Reviews = () => {
     if(isLoading){return <LoadingReviews/>}
 
     return <section>
-        <div>
+        <div className='category-section'>
             <Categories className="category-selector" setCategory={setCategory}/>
         </div>
         <ul className='review-grid'>
