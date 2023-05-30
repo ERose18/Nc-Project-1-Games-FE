@@ -39,7 +39,7 @@ const AddComment = ({ setComments, review_id}) => {
             })
         }}>
 
-        <label htmlFor="comment-body">Comment</label>
+        <label htmlFor="comment-body">Comment:</label>
         <textarea name="comment-body" value={commentBody} required onChange={(event) =>{
             setCommentBody(event.target.value)
         }}></textarea>

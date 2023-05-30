@@ -1,6 +1,8 @@
 import {Link} from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from '../utils/context';
+import 'animate.css';
+
 
 const Header = () => {
   const {user, setUser} = useContext(UserContext);

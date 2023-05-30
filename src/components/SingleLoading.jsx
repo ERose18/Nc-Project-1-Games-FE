@@ -1,7 +1,10 @@
 
 const SingleLoading = () => {
     return <section className="loading">
-        <p>Review is Loading...</p>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <img src={require('../resources/loading-animation1.gif')} alt="Loading animation" />
+        <p className='review-loading-writing'>Review is Loading...</p>
+        </div>
     </section>
 }
 

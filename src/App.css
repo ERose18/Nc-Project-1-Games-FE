@@ -1,6 +1,10 @@
 html{
-  color:aliceblue;
+  color:rgb(255, 233, 193);
   background-color: rgb(90, 92, 95);
+}
+
+.review-loading-writing{
+  color:rgb(255, 191, 54);
 }
 
 .nav-line{
@@ -35,11 +39,11 @@ html{
 
 a{
   font-size: large;
-  color: aliceblue;
+  color: rgb(255, 233, 193);
   text-decoration: none;
 }
 a:hover{
-  color:rgb(107, 164, 238)
+  color:rgb(255, 191, 54);
 }
 
 .game-review {
@@ -61,7 +65,7 @@ a:hover{
 
 .images{
   width: 400px;
-  border: 5px solid rgb(156, 72, 252);
+  border: 5px solid rgb(255, 191, 54);
 }
 
 .title{
@@ -147,7 +151,7 @@ a:hover{
 }
 
 .arrow {
-  border: solid rgb(156, 72, 252);
+  border: solid rgb(255, 191, 54);
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3.5px;
@@ -165,10 +169,9 @@ a:hover{
    background: rgb(70, 73, 77);
    padding: 2rem;
    margin: 3rem;
-   filter: drop-shadow(0 0 0.75rem rgb(156, 72, 252));
+   filter: drop-shadow(0 0 0.75rem rgb(255, 191, 54));
    justify-content: center;
-    align-items: center;
-  text-align: center;
+   text-align: center;
 }
 
 
@@ -179,7 +182,7 @@ a:hover{
 
 .posted-comment{
   text-align: center;
-  color:rgb(156, 72, 252);
+  color:rgb(255, 191, 54);
 }
 
 .comment-grid{

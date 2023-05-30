@@ -2,6 +2,8 @@ import { useState, useContext, useEffect } from 'react';
 import { fetchUsers } from '../api';
 import { UserContext } from '../utils/context';
 import ErrorHandler from "./ErrorHandler";
+import 'animate.css';
+
 
 const Home = ({isLoggedIn, setIsLoggedIn}) => {
     const [username, setUsername] = useState('');
